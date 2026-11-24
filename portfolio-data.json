@@ -1,0 +1,243 @@
+{
+  "format": "portfolio-data",
+  "version": 1,
+  "name": "Duy Nguyen",
+  "colors": {
+    "light": "#0a7a3d",
+    "dark": "#4ade80"
+  },
+  "text": {
+    "heroWho": "Duy Nguyen, software engineer",
+    "heroTitle": "From pocket to cloud.",
+    "heroRole": "Mobile apps up front. Servers behind the scenes.",
+    "aboutTitle": "About",
+    "aboutSub": "A short introduction.",
+    "skillsTitle": "Skills",
+    "skillsSub": "What I have work with, grouped by area.",
+    "contactTitle": "Contact",
+    "contactSub": "Have a project or a role in mind? Send me a message.",
+    "footer": "© 2026 Mine Portfolito. Built with Claude."
+  },
+  "about": [
+    "I'm a junior developer looking to grow through hands-on experience, new challenges, and continuous learning. ",
+    "I value writing clean, maintainable code and building software that is performant, secure, and scalable."
+  ],
+  "bigWords": [
+    {
+      "label": "Mobile",
+      "section": 0
+    },
+    {
+      "label": "Backend",
+      "section": 1
+    }
+  ],
+  "skills": [
+    {
+      "title": "Mobile",
+      "text": "Native and cross-platform apps with smooth UI and offline support.",
+      "tags": [
+        "Kotlin",
+        "Compose",
+        "CMP",
+        "KMP",
+        "Flutter"
+      ]
+    },
+    {
+      "title": "Backend",
+      "text": "REST APIs, authentication, and data modeling.",
+      "tags": [
+        "Node.js",
+        "Java / Spring",
+        "C#",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "title": "Tools",
+      "text": "Testing, version control, and automation.",
+      "tags": [
+        "Docker",
+        "CI/CD",
+        "GitHub"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "mobile",
+      "title": "Mobile projects",
+      "sub": "Android and cross-platform apps (Android, iOS, etc.)",
+      "projects": [
+        {
+          "title": "Meme creator",
+          "text": "Creating and customize memes through 50+  templates.",
+          "tags": [
+            "Kotlin",
+            "CMP"
+          ],
+          "links": [
+            {
+              "text": "View code",
+              "href": "https://github.com/lycia-nym/cmp-meme-creator"
+            },
+            {
+              "text": "Live demo",
+              "href": "https://appetize.io/app/b_jrfcaopufvk2dnk332hc3g6rmm"
+            }
+          ]
+        },
+        {
+          "title": "Bookpedia",
+          "text": "Discover over 20 million book editions from 6 million author from Open Library API.",
+          "tags": [
+            "Kotlin",
+            "CMP",
+            "RoomDB"
+          ],
+          "links": [
+            {
+              "text": "View code",
+              "href": "https://github.com/lycia-nym/cmp-bookpedia"
+            },
+            {
+              "text": "Live demo",
+              "href": "https://appetize.io/app/b_q6kfl5lfdhc4ku6r54mi3belrq"
+            }
+          ]
+        },
+        {
+          "title": "Blog app",
+          "text": "Create content, set tag for different category, display in card view.",
+          "tags": [
+            "Flutter",
+            "Supabase"
+          ],
+          "links": [
+            {
+              "text": "View code",
+              "href": "https://github.com/lycia-nym/Blog_App"
+            },
+            {
+              "text": "",
+              "href": "#"
+            }
+          ]
+        },
+        {
+          "title": "Study assistant app",
+          "text": "Organize study sessions, generate flash cards on random topics.",
+          "tags": [
+            "Kotlin",
+            "Compose"
+          ],
+          "links": [
+            {
+              "text": "View code",
+              "href": "https://github.com/lycia-nym/StudyAssistantApp"
+            },
+            {
+              "text": "",
+              "href": "#"
+            }
+          ]
+        },
+        {
+          "title": "Crypto tracker",
+          "text": "Fetches cryptocurrency market data from CoinCap API, view historical price data.",
+          "tags": [
+            "Kotlin",
+            "Compose"
+          ],
+          "links": [
+            {
+              "text": "View code",
+              "href": "https://github.com/lycia-nym/CryptoTracker"
+            },
+            {
+              "text": "",
+              "href": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "title": "Backend projects",
+      "sub": "APIs, services, and data systems.",
+      "projects": [
+        {
+          "title": "E-commerce microservices",
+          "text": "A simple E-Commerce backend built with Java and Spring Boot.",
+          "tags": [
+            "Java",
+            "Spring Boot",
+            "PostgreSQL"
+          ],
+          "links": [
+            {
+              "text": "View code",
+              "href": "https://github.com/lycia-nym/ecom-microservices"
+            },
+            {
+              "text": "",
+              "href": "#"
+            }
+          ]
+        },
+        {
+          "title": "Uni bank api",
+          "text": "A cross-border banking api that lets users open accounts in multiple currencies.",
+          "tags": [
+            "Java",
+            "Spring Boot"
+          ],
+          "links": [
+            {
+              "text": "View code",
+              "href": "https://github.com/drkhaik/uni-bank"
+            },
+            {
+              "text": "",
+              "href": "#"
+            }
+          ]
+        },
+        {
+          "title": "Restaurant management",
+          "text": "Streamlines ordering and payment for a smoother dining experience.",
+          "tags": [
+            "Node.js",
+            "EJS"
+          ],
+          "links": [
+            {
+              "text": "View code",
+              "href": "https://github.com/drkhaik/ASE-Restaurant-Management"
+            },
+            {
+              "text": "",
+              "href": "#"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "contact": [
+    {
+      "text": "liam.onwork@gmail.com",
+      "href": "mailto:liam.onwork@gmail.com"
+    },
+    {
+      "text": "github.com/lycia-nym",
+      "href": "https://github.com/lycia-nym"
+    },
+    {
+      "text": "",
+      "href": "https://linkedin.com/in/yourname"
+    }
+  ]
+}

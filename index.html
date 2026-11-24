@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duy Nguyen | Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<script>
+  /* Apply saved or system theme before paint to avoid a flash */
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+  :root {
+    --bg: #f6fbf7;
+    --surface: #e4f3e8;
+    --text: #0f2418;
+    --muted: #4a6455;
+    --line: #b9d6c2;
+    --accent: #0a7a3d;
+    --accent-ink: #ffffff;
+    --danger: #b3261e;
+    --card: #ffffff;
+    --tag: #e6f4ea;
+    --shadow: 0 1px 2px rgba(15,36,24,.08), 0 6px 16px rgba(15,36,24,.08), 0 16px 32px rgba(15,36,24,.06);
+    --shadow-hover: 0 2px 4px rgba(15,36,24,.10), 0 12px 24px rgba(15,36,24,.14), 0 24px 44px rgba(15,36,24,.12);
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1a14;
+    --surface: #15291f;
+    --text: #e9f5ee;
+    --muted: #9bb8a8;
+    --line: #28443500;
+    --line: #2c4a3a;
+    --accent: #4ade80;
+    --accent-ink: #062414;
+    --danger: #ff8a80;
+    --card: #172e23;
+    --tag: #0d1a14;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 20px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+    --shadow-hover: 0 2px 4px rgba(0,0,0,.5), 0 14px 28px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.07);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    transition: background .25s, color .25s;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 58rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 4rem; }
+  .brand { font-family: var(--display); font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+  nav { display: flex; align-items: center; gap: 1.5rem; }
+  nav a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: .98rem; }
+  nav a:hover { color: var(--accent); }
+  .toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2.5rem; height: 2.5rem; padding: 0; cursor: pointer;
+    background: var(--surface); color: var(--text);
+    border: 1.5px solid var(--line); border-radius: 50%;
+  }
+  .toggle:hover { border-color: var(--accent); color: var(--accent); }
+  :root[data-theme="dark"] .toggle .moon { display: none; }
+  :root:not([data-theme="dark"]) .toggle .sun { display: none; }
+
+  /* Hero */
+  .hero { padding: clamp(3rem, 8vw, 5rem) 0 clamp(2.5rem, 6vw, 4rem); }
+  .hero-top { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-bottom: clamp(2.5rem, 6vw, 4rem); }
+  .who { color: var(--accent); font-weight: 500; margin: 0 0 1rem; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.8rem, 8.5vw, 5.5rem); line-height: 1; letter-spacing: -.035em; margin: 0 0 1.25rem; max-width: 9ch; }
+  .role { color: var(--muted); font-size: 1.15rem; margin: 0; max-width: 24rem; }
+  .art { flex: 0 0 auto; width: clamp(10rem, 32vw, 19rem); height: auto; filter: drop-shadow(0 14px 22px rgba(0,0,0,.14)); }
+  .flow { animation: flow 1.4s linear 4; }
+  @keyframes flow { to { stroke-dashoffset: -28; } }
+  .big-list { display: block; }
+  .big {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+    font-family: var(--display); font-weight: 700; text-decoration: none;
+    font-size: clamp(2.2rem, 7vw, 3.75rem); line-height: 1.1; letter-spacing: -.03em;
+    padding: .15em .25em; border-top: 2px solid var(--text);
+    transition: background .2s, color .2s;
+  }
+  .big-row:last-child .big { border-bottom: 2px solid var(--text); }
+  .big .count { font-family: var(--body); font-weight: 500; font-size: 1rem; letter-spacing: 0; color: var(--muted); }
+  .big:hover, .big:focus-visible { background: var(--accent); color: var(--accent-ink); }
+  .big:hover .count, .big:focus-visible .count { color: var(--accent-ink); }
+
+  /* Sections */
+  section { padding: clamp(3rem, 7vw, 5rem) 0; border-top: 1px solid var(--line); }
+  h2 { font-family: var(--display); font-size: clamp(1.7rem, 4vw, 2.3rem); letter-spacing: -.02em; margin: 0 0 .5rem; }
+  .sub { color: var(--muted); margin: 0 0 2.5rem; max-width: 36rem; }
+
+  /* Skills: rows, not cards */
+  .skills { margin: 0; padding: 0; list-style: none; }
+  .skills li {
+    display: grid; grid-template-columns: 11rem 1fr; gap: 1rem 2rem;
+    padding: 1.4rem 0; border-top: 1px solid var(--line);
+  }
+  .skills li:last-child { border-bottom: 1px solid var(--line); }
+  .skills h3 { font-family: var(--display); font-size: 1.3rem; margin: 0; }
+  .skills p { margin: 0 0 .85rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+  .tags li {
+    display: block; padding: .2rem .7rem; border-radius: 6px;
+    background: var(--surface); border: 1px solid var(--line);
+    font-size: .92rem;
+  }
+
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
+  .project {
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: .75rem;
+    padding: 1.9rem 1.6rem 1.5rem; border: 1px solid var(--line); border-radius: 14px;
+    background: var(--card); box-shadow: var(--shadow);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .project::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--accent); }
+  .project:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .editing .project:hover { transform: none; }
+  .project h3 { font-family: var(--display); font-size: 1.3rem; margin: 0; }
+  .project p { margin: 0; color: var(--muted); }
+  .project .tags { margin-top: auto; }
+  .project .tags li { background: var(--tag); border-color: transparent; border-radius: 999px; padding: .2rem .8rem; }
+  .project .links { display: flex; gap: 1.25rem; font-weight: 500; padding-top: .9rem; border-top: 1px solid var(--line); }
+  .project .links a { color: var(--text); text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .project .links a:hover { color: var(--accent); }
+
+  /* Contact */
+  .contact-list { margin: 0; padding: 0; list-style: none; display: grid; gap: .6rem; font-size: 1.15rem; }
+  .contact-list a { text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .contact-list a:hover { color: var(--accent); }
+  footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .95rem; border-top: 1px solid var(--line); }
+
+  /* Edit mode (hidden unless you tap the name 3 times) */
+  .edit-only, .editbar { display: none; }
+  .editing button.edit-only { display: inline-block; }
+  .editing .editbar { display: block; position: fixed; left: 50%; transform: translateX(-50%); bottom: .75rem; z-index: 30; width: min(44rem, calc(100% - 1.5rem)); }
+  .eb-row {
+    display: flex; align-items: center; flex-wrap: wrap; gap: .25rem; padding: .4rem .45rem .4rem 1rem;
+    background: var(--surface); color: var(--text); border: 1.5px solid var(--line); border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .22);
+  }
+  .eb-title { display: inline-flex; align-items: center; gap: .55rem; margin-right: auto; font-weight: 700; font-size: .95rem; }
+  .eb-title::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--accent); }
+  .eb-btn { font: inherit; font-size: .92rem; font-weight: 500; padding: .45rem .8rem; border: 0; border-radius: 8px; background: transparent; color: var(--text); cursor: pointer; }
+  .eb-btn:hover, .eb-btn[aria-expanded="true"] { background: var(--bg); }
+  .eb-exit { background: var(--accent); color: var(--accent-ink); margin-left: .25rem; }
+  .eb-exit:hover { background: var(--accent); filter: brightness(1.1); }
+  .eb-pop {
+    display: none; position: absolute; right: 0; bottom: calc(100% + .5rem); width: min(21rem, 100%); padding: .4rem;
+    background: var(--surface); color: var(--text); border: 1.5px solid var(--line); border-radius: 12px; box-shadow: 0 8px 28px rgba(0, 0, 0, .22);
+  }
+  .eb-pop.open { display: block; }
+  .eb-pop hr { border: 0; border-top: 1px solid var(--line); margin: .35rem 0; }
+  .eb-field { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .5rem .6rem; font-size: .95rem; }
+  .eb-field input[type="text"] { font: inherit; width: 10rem; padding: .3rem .55rem; border: 1.5px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--text); }
+  .eb-field input[type="color"] { width: 2.6rem; height: 2rem; padding: 0; border: 1.5px solid var(--line); border-radius: 6px; background: none; cursor: pointer; }
+  .eb-item { display: block; width: 100%; text-align: left; font: inherit; padding: .6rem .7rem; border: 0; border-radius: 8px; background: transparent; color: var(--text); cursor: pointer; }
+  .eb-item:hover { background: var(--bg); }
+  .eb-item strong { display: block; font-size: .95rem; }
+  .eb-item span { display: block; font-size: .85rem; color: var(--muted); }
+  .eb-tips { margin: 0; padding: .5rem .7rem; list-style: none; display: grid; gap: .55rem; font-size: .93rem; }
+  .editbar .status {
+    position: absolute; right: 0; bottom: calc(100% + .5rem); max-width: 100%;
+    padding: .5rem .85rem; border-radius: 8px; background: var(--accent); color: var(--accent-ink); font-size: .9rem; font-weight: 500;
+  }
+  .editbar .status:empty { display: none; }
+  .editing [contenteditable]:hover { outline: 2px dashed var(--line); outline-offset: 2px; }
+  .editing [contenteditable]:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Quiet edit controls: remove = text link, add = dashed outline */
+  button.rm, button.rm-skill, button.rm-big, button.rm-section, button.link-big {
+    font: inherit; font-size: .88rem; cursor: pointer; background: none; border: 0; padding: .25rem .1rem;
+    color: var(--muted); text-decoration: underline; text-underline-offset: 3px;
+  }
+  button.rm:hover, button.rm-skill:hover, button.rm-big:hover, button.rm-section:hover { color: var(--danger); }
+  button.link-big:hover { color: var(--accent); }
+  button.add, button.add-tag, button.add-skill, button.add-big, button.add-section {
+    font: inherit; font-size: .9rem; font-weight: 500; cursor: pointer; background: transparent; color: var(--muted);
+    border: 1.5px dashed var(--line); border-radius: 8px; padding: .4rem .9rem;
+  }
+  button.add:hover, button.add-tag:hover, button.add-skill:hover, button.add-big:hover, button.add-section:hover { border-color: var(--accent); color: var(--accent); }
+  .project .rm { align-self: flex-start; }
+  button.add, button.add-skill, button.add-big { margin-top: 1.25rem; }
+  button.add-tag, button.rm-skill { margin: .85rem .75rem 0 0; }
+  button.rm-big, button.link-big { margin: .25rem .9rem .9rem 0; }
+  button.rm-section { margin: 1.25rem 0 0 .75rem; }
+  .editing button.add-section { display: block; width: 100%; margin: 2rem 0 0; padding: .9rem; }
+    /* Pages for sections with more than 6 projects */
+  .projects.paged { grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
+  .projects.paged .project[data-off] { display: none; }
+  .slider-nav { display: flex; align-items: center; justify-content: flex-end; gap: .75rem; margin-top: 1.25rem; }
+  .slider-nav .pg { min-width: 3.5rem; text-align: center; color: var(--muted); font-size: .95rem; }
+  .slider-nav button {
+    display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; padding: 0; cursor: pointer;
+    background: var(--surface); color: var(--text); border: 1.5px solid var(--line); border-radius: 50%;
+  }
+  .slider-nav button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .slider-nav button:disabled { opacity: .35; cursor: default; }
+  .editing .projects.paged .project[data-off] { display: flex; }
+  .editing .slider-nav { display: none; }
+  @media (max-width: 40rem) {
+    nav a { display: none; }
+    .hero-top { flex-direction: column-reverse; align-items: flex-start; }
+    .art { width: 11rem; }
+    .skills li { grid-template-columns: 1fr; gap: .5rem; }
+    
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body class="">
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Duy Nguyen</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#mobile" data-nav="projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">
+        <svg class="moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+        <svg class="sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="hero-top">
+        <div>
+          <p class="who">Duy Nguyen, software engineer</p>
+          <h1>From pocket to cloud.</h1>
+          <p class="role">Mobile apps up front. Servers behind the scenes.</p>
+        </div>
+        <svg class="art" viewBox="0 0 280 220" role="img" aria-label="A phone connected to the cloud and a database">
+          <circle cx="150" cy="112" r="100" fill="var(--accent)" opacity=".1"></circle>
+          <path class="flow" d="M110 100 C 134 100, 138 80, 160 76" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 8"></path>
+          <path class="flow" d="M208 106 V 136" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 8"></path>
+          <g transform="translate(156 16) scale(4.1)"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" fill="var(--card)" stroke="var(--text)" stroke-width=".75" stroke-linejoin="round"></path></g>
+          <g fill="var(--accent)"><circle cx="190" cy="64" r="4"></circle><circle cx="206" cy="64" r="4"></circle><circle cx="222" cy="64" r="4"></circle></g>
+          <g fill="var(--card)" stroke="var(--text)" stroke-width="3" stroke-linejoin="round">
+            <path d="M170 146v34c0 9 17 15 38 15s38-6 38-15v-34"></path>
+            <ellipse cx="208" cy="146" rx="38" ry="15"></ellipse>
+            <path d="M170 163c0 9 17 15 38 15s38-6 38-15" fill="none"></path>
+          </g>
+          <g fill="var(--accent)"><circle cx="192" cy="184" r="3.5"></circle><circle cx="204" cy="184" r="3.5"></circle></g>
+          <g transform="rotate(-6 64 120)">
+            <rect x="24" y="40" width="82" height="156" rx="16" fill="var(--card)" stroke="var(--text)" stroke-width="3"></rect>
+            <rect x="50" y="49" width="30" height="6" rx="3" fill="var(--text)"></rect>
+            <rect x="36" y="66" width="58" height="12" rx="4" fill="var(--accent)"></rect>
+            <rect x="36" y="86" width="40" height="5" rx="2.5" fill="var(--line)"></rect>
+            <rect x="36" y="100" width="58" height="34" rx="7" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"></rect>
+            <circle cx="50" cy="117" r="7" fill="var(--accent)"></circle>
+            <rect x="62" y="112" width="26" height="4" rx="2" fill="var(--line)"></rect><rect x="62" y="120" width="18" height="4" rx="2" fill="var(--line)"></rect>
+            <rect x="36" y="144" width="58" height="10" rx="5" fill="var(--surface)"></rect>
+            <rect x="36" y="160" width="58" height="10" rx="5" fill="var(--surface)"></rect>
+            <rect x="36" y="176" width="58" height="12" rx="6" fill="var(--accent)"></rect>
+          </g>
+        </svg>
+      </div>
+      <div class="big-list">
+        <div class="big-row">
+          <a class="big" href="#mobile"><span>Mobile</span><span class="count">5 projects</span></a>
+          
+          
+        </div>
+        <div class="big-row">
+          <a class="big" href="#backend"><span>Backend</span><span class="count">3 projects</span></a>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="sub">A short introduction.</p>
+      <p style="max-width:40rem;margin:0 0 1rem">I'm a junior developer looking to grow through hands-on experience, new challenges, and continuous learning.&nbsp;</p>
+      <p style="max-width:40rem;margin:0">I value writing clean, maintainable code and building software that is performant, secure, and scalable.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="sub">What I have work with, grouped by area.</p>
+      <ul class="skills">
+        <li>
+          <h3>Mobile</h3>
+          <div>
+            <p>Native and cross-platform apps with smooth UI and offline support.</p>
+            <ul class="tags"><li>Kotlin</li><li>Compose</li><li>CMP</li><li>KMP</li><li>Flutter</li></ul>
+            
+            
+          </div>
+        </li>
+        <li>
+          <h3>Backend</h3>
+          <div>
+            <p>REST APIs, authentication, and data modeling.</p>
+            <ul class="tags"><li>Node.js</li><li>Java / Spring</li><li>C#</li><li>PostgreSQL</li></ul>
+            
+            
+          </div>
+        </li>
+        
+        <li>
+          <h3>Tools</h3>
+          <div>
+            <p>Testing, version control, and automation.</p>
+            <ul class="tags"><li>Docker</li><li>CI/CD</li><li>GitHub</li></ul>
+            
+            
+          </div>
+        </li>
+      </ul>
+      
+    </section>
+
+    <section class="proj-section" id="mobile">
+      <h2>Mobile projects</h2>
+      <p class="sub">Android and cross-platform apps (Android, iOS, etc.)</p>
+      <div class="projects">
+        <article class="project">
+          <h3>Meme creator</h3>
+          <p>Creating and customize memes through 50+&nbsp; templates.</p>
+          <ul class="tags"><li>Kotlin</li><li>CMP</li></ul>
+          <p class="links"><a href="https://github.com/lycia-nym/cmp-meme-creator" target="_blank" rel="noopener noreferrer">View code</a><a href="https://appetize.io/app/b_jrfcaopufvk2dnk332hc3g6rmm" target="_blank" rel="noopener noreferrer">Live demo</a></p>
+          
+        </article>
+<article class="project">
+          <h3>Bookpedia</h3>
+          <p>Discover over 20 million book editions from 6 million author from Open Library API.</p>
+          <ul class="tags"><li>Kotlin</li><li>CMP</li><li>RoomDB</li></ul>
+          <p class="links"><a href="https://github.com/lycia-nym/cmp-bookpedia" target="_blank" rel="noopener noreferrer">View code</a><a href="https://appetize.io/app/b_q6kfl5lfdhc4ku6r54mi3belrq" target="_blank" rel="noopener noreferrer">Live demo</a></p>
+          
+        </article>
+<article class="project">
+          <h3>Blog app</h3>
+          <p>Create content, set tag for different category, display in card view.</p>
+          <ul class="tags"><li>Flutter</li><li>Supabase</li></ul>
+          <p class="links"><a href="https://github.com/lycia-nym/Blog_App" target="_blank" rel="noopener noreferrer">View code</a><a href="#"><br></a></p>
+          
+        </article>
+      <article class="project">
+          <h3>Study assistant app</h3>
+          <p>Organize study sessions, generate flash cards on random topics.</p>
+          <ul class="tags"><li>Kotlin</li><li>Compose</li></ul>
+          <p class="links"><a href="https://github.com/lycia-nym/StudyAssistantApp" target="_blank" rel="noopener noreferrer">View code</a><a href="#"><br></a></p>
+          
+        </article><article class="project">
+          <h3>Crypto tracker</h3>
+          <p>Fetches cryptocurrency market data from CoinCap API, view historical price data.</p>
+          <ul class="tags"><li>Kotlin</li><li>Compose</li></ul>
+          <p class="links"><a href="https://github.com/lycia-nym/CryptoTracker" target="_blank" rel="noopener noreferrer">View code</a><a href="#"><br></a></p>
+          
+        </article></div>
+      
+      
+    </section>
+
+    <section class="proj-section" id="backend">
+      <h2>Backend projects</h2>
+      <p class="sub">APIs, services, and data systems.</p>
+      <div class="projects">
+        <article class="project">
+          <h3>E-commerce microservices</h3>
+          <p>A simple E-Commerce backend built with Java and Spring Boot.</p>
+          <ul class="tags"><li>Java</li><li>Spring Boot</li><li>PostgreSQL</li></ul>
+          <p class="links"><a href="https://github.com/lycia-nym/ecom-microservices" target="_blank" rel="noopener noreferrer">View code</a><a href="#"><br></a></p>
+          
+        </article>
+<article class="project">
+          <h3>Uni bank api</h3>
+          <p>A cross-border banking api that lets users open accounts in multiple currencies.</p>
+          <ul class="tags"><li>Java</li><li>Spring Boot</li></ul>
+          <p class="links"><a href="https://github.com/drkhaik/uni-bank" target="_blank" rel="noopener noreferrer">View code</a><a href="#"><br></a></p>
+          
+        </article>
+<article class="project">
+          <h3>Restaurant management</h3>
+          <p>Streamlines ordering and payment for a smoother dining experience.</p>
+          <ul class="tags"><li>Node.js</li><li>EJS</li></ul>
+          <p class="links"><a href="https://github.com/drkhaik/ASE-Restaurant-Management" target="_blank" rel="noopener noreferrer">View code</a><a href="#"><br></a></p>
+          
+        </article>
+      </div>
+      
+      
+    </section>
+
+    
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="sub">Have a project or a role in mind? Send me a message.</p>
+      <ul class="contact-list">
+        <li><a href="mailto:liam.onwork@gmail.com">liam.onwork@gmail.com</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/lycia-nym">github.com/lycia-nym</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/yourname"></a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Mine Portfolito. Built with Claude.</div>
+</footer>
+
+<style id="custom"></style>
+
+<script>
+  var root = document.documentElement, tg = document.getElementById('themeToggle');
+  function sync() { tg.setAttribute('aria-label', root.getAttribute('data-theme') === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'); }
+  sync();
+  tg.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    sync();
+  });
+</script>
+<script id="slider-js">
+(function () {
+  var PER = 6;
+  var PREV = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+  var NEXT = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+
+  function show(sec, page) {
+    var list = sec.querySelector('.projects'), nav = sec.querySelector('.slider-nav');
+    var cards = list.querySelectorAll('.project'), pages = Math.ceil(cards.length / PER);
+    page = Math.max(0, Math.min(pages - 1, page));
+    list.setAttribute('data-page', page);
+    cards.forEach(function (c, i) {
+      if (Math.floor(i / PER) === page) c.removeAttribute('data-off'); else c.setAttribute('data-off', '');
+    });
+    nav.querySelector('.pg').textContent = (page + 1) + ' / ' + pages;
+    nav.querySelector('[data-dir="-1"]').disabled = page === 0;
+    nav.querySelector('[data-dir="1"]').disabled = page === pages - 1;
+  }
+  function build(sec, keep) {
+    var list = sec.querySelector('.projects'), nav = sec.querySelector('.slider-nav');
+    if (!list) return;
+    var cards = list.querySelectorAll('.project');
+    if (cards.length > PER) {
+      list.classList.add('paged');
+      if (!nav) {
+        nav = document.createElement('div'); nav.className = 'slider-nav';
+        nav.innerHTML = '<button type="button" data-dir="-1" aria-label="Previous page">' + PREV + '</button><span class="pg" aria-live="polite"></span><button type="button" data-dir="1" aria-label="Next page">' + NEXT + '</button>';
+        list.after(nav);
+      }
+      show(sec, keep ? (parseInt(list.getAttribute('data-page'), 10) || 0) : 0);
+    } else {
+      list.classList.remove('paged'); list.removeAttribute('data-page');
+      cards.forEach(function (c) { c.removeAttribute('data-off'); });
+      if (nav) nav.remove();
+    }
+  }
+  window.refreshSliders = function (keep) { document.querySelectorAll('.proj-section').forEach(function (s) { build(s, keep); }); };
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.slider-nav button');
+    if (!b || b.disabled) return;
+    var sec = b.closest('.proj-section'), cur = parseInt(sec.querySelector('.projects').getAttribute('data-page'), 10) || 0;
+    show(sec, cur + Number(b.getAttribute('data-dir')));
+  });
+  window.refreshSliders();
+})();
+</script>
+
+
+
+</body></html>
