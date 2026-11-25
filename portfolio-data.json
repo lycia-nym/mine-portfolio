@@ -13,13 +13,13 @@
     "aboutTitle": "About",
     "aboutSub": "A short introduction.",
     "skillsTitle": "Skills",
-    "skillsSub": "What I have work with, grouped by area.",
+    "skillsSub": "What I work with, grouped by area.",
     "contactTitle": "Contact",
     "contactSub": "Have a project or a role in mind? Send me a message.",
     "footer": "© 2026 Mine Portfolito. Built with Claude."
   },
   "about": [
-    "I'm a junior developer looking to grow through hands-on experience, new challenges, and continuous learning. ",
+    "I'm a junior developer looking to grow through hands-on experience, new challenges, and continuous learning.",
     "I value writing clean, maintainable code and building software that is performant, secure, and scalable."
   ],
   "bigWords": [
@@ -40,7 +40,9 @@
         "Kotlin",
         "Compose",
         "CMP",
-        "KMP",
+        "KMP"
+      ],
+      "familiar": [
         "Flutter"
       ]
     },
@@ -49,18 +51,25 @@
       "text": "REST APIs, authentication, and data modeling.",
       "tags": [
         "Node.js",
-        "Java / Spring",
+        "Java / Spring"
+      ],
+      "familiar": [
         "C#",
-        "PostgreSQL"
+        "PostgreSQL",
+        "MongoDB",
+        "Python"
       ]
     },
     {
       "title": "Tools",
       "text": "Testing, version control, and automation.",
       "tags": [
-        "Docker",
+        "Agentic Development",
         "CI/CD",
         "GitHub"
+      ],
+      "familiar": [
+        "Docker"
       ]
     }
   ],
@@ -68,11 +77,11 @@
     {
       "id": "mobile",
       "title": "Mobile projects",
-      "sub": "Android and cross-platform apps (Android, iOS, etc.)",
+      "sub": "Android, iOS, and cross-platform apps.",
       "projects": [
         {
           "title": "Meme creator",
-          "text": "Creating and customize memes through 50+  templates.",
+          "text": "Create and customize memes from 50+ templates.",
           "tags": [
             "Kotlin",
             "CMP"
@@ -90,7 +99,7 @@
         },
         {
           "title": "Bookpedia",
-          "text": "Discover over 20 million book editions from 6 million author from Open Library API.",
+          "text": "Discover over 20 million book editions by 6 million authors from the Open Library API.",
           "tags": [
             "Kotlin",
             "CMP",
@@ -109,55 +118,46 @@
         },
         {
           "title": "Blog app",
-          "text": "Create content, set tag for different category, display in card view.",
+          "text": "Create posts, assign tags for different categories, and display them in a card view.",
           "tags": [
             "Flutter",
-            "Supabase"
+            "Supabase",
+            "Hive"
           ],
           "links": [
             {
               "text": "View code",
               "href": "https://github.com/lycia-nym/Blog_App"
-            },
-            {
-              "text": "",
-              "href": "#"
             }
           ]
         },
         {
           "title": "Study assistant app",
-          "text": "Organize study sessions, generate flash cards on random topics.",
+          "text": "Organize study sessions and generate flashcards on random topics.",
           "tags": [
             "Kotlin",
-            "Compose"
+            "Compose",
+            "Hilt"
           ],
           "links": [
             {
               "text": "View code",
               "href": "https://github.com/lycia-nym/StudyAssistantApp"
-            },
-            {
-              "text": "",
-              "href": "#"
             }
           ]
         },
         {
           "title": "Crypto tracker",
-          "text": "Fetches cryptocurrency market data from CoinCap API, view historical price data.",
+          "text": "Fetches cryptocurrency market data from the CoinCap API and lets you view historical price data.",
           "tags": [
             "Kotlin",
-            "Compose"
+            "Compose",
+            "Koin"
           ],
           "links": [
             {
               "text": "View code",
               "href": "https://github.com/lycia-nym/CryptoTracker"
-            },
-            {
-              "text": "",
-              "href": "#"
             }
           ]
         }
@@ -170,7 +170,7 @@
       "projects": [
         {
           "title": "E-commerce microservices",
-          "text": "A simple E-Commerce backend built with Java and Spring Boot.",
+          "text": "A simple e-commerce backend built with Java and Spring Boot.",
           "tags": [
             "Java",
             "Spring Boot",
@@ -180,16 +180,12 @@
             {
               "text": "View code",
               "href": "https://github.com/lycia-nym/ecom-microservices"
-            },
-            {
-              "text": "",
-              "href": "#"
             }
           ]
         },
         {
-          "title": "Uni bank api",
-          "text": "A cross-border banking api that lets users open accounts in multiple currencies.",
+          "title": "Uni bank API",
+          "text": "A cross-border banking API that lets users open accounts in multiple currencies.",
           "tags": [
             "Java",
             "Spring Boot"
@@ -198,10 +194,6 @@
             {
               "text": "View code",
               "href": "https://github.com/drkhaik/uni-bank"
-            },
-            {
-              "text": "",
-              "href": "#"
             }
           ]
         },
@@ -216,10 +208,6 @@
             {
               "text": "View code",
               "href": "https://github.com/drkhaik/ASE-Restaurant-Management"
-            },
-            {
-              "text": "",
-              "href": "#"
             }
           ]
         }
@@ -234,10 +222,12 @@
     {
       "text": "github.com/lycia-nym",
       "href": "https://github.com/lycia-nym"
-    },
-    {
-      "text": "",
-      "href": "https://linkedin.com/in/yourname"
     }
-  ]
+  ],
+  "seo": {
+    "title": "Duy Nguyen | Software Engineer",
+    "description": "Junior software engineer building mobile apps and backend services. See my projects and get in touch.",
+    "url": "https://lycia-nym.github.io/mine-portfolio/",
+    "initials": "DN"
+  }
 }

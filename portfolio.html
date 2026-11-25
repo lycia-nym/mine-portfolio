@@ -4,6 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your Name | Software Engineer</title>
+<meta name="description" content="Software engineer building mobile apps and backend systems. See my projects and get in touch.">
+<meta name="theme-color" content="#0a7a3d">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your Name">
+<meta property="og:title" content="Your Name | Software Engineer">
+<meta property="og:description" content="Software engineer building mobile apps and backend systems. See my projects and get in touch.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Name | Software Engineer">
+<meta name="twitter:description" content="Software engineer building mobile apps and backend systems. See my projects and get in touch.">
+<meta name="twitter:image" content="og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230a7a3d%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20font-family%3D%22Arial%2CHelvetica%2Csans-serif%22%20font-size%3D%2230%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fff%22%3EYN%3C%2Ftext%3E%3C%2Fsvg%3E" data-initials="YN">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -27,6 +41,7 @@
     --accent-ink: #ffffff;
     --danger: #b3261e;
     --card: #ffffff;
+    --ui: #6b8a78;
     --tag: #e6f4ea;
     --shadow: 0 1px 2px rgba(15,36,24,.08), 0 6px 16px rgba(15,36,24,.08), 0 16px 32px rgba(15,36,24,.06);
     --shadow-hover: 0 2px 4px rgba(15,36,24,.10), 0 12px 24px rgba(15,36,24,.14), 0 24px 44px rgba(15,36,24,.12);
@@ -44,6 +59,7 @@
     --accent-ink: #062414;
     --danger: #ff8a80;
     --card: #172e23;
+    --ui: #5f8a72;
     --tag: #0d1a14;
     --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 20px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
     --shadow-hover: 0 2px 4px rgba(0,0,0,.5), 0 14px 28px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.07);
@@ -77,12 +93,12 @@
   .brand { font-family: var(--display); font-weight: 700; font-size: 1.15rem; text-decoration: none; }
   nav { display: flex; align-items: center; gap: 1.5rem; }
   nav a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: .98rem; }
-  nav a:hover { color: var(--accent); }
+  nav a:hover { color: var(--accent); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
   .toggle {
     display: inline-flex; align-items: center; justify-content: center;
     width: 2.5rem; height: 2.5rem; padding: 0; cursor: pointer;
     background: var(--surface); color: var(--text);
-    border: 1.5px solid var(--line); border-radius: 50%;
+    border: 1.5px solid var(--ui); border-radius: 50%;
   }
   .toggle:hover { border-color: var(--accent); color: var(--accent); }
   :root[data-theme="dark"] .toggle .moon { display: none; }
@@ -95,7 +111,7 @@
   h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.8rem, 8.5vw, 5.5rem); line-height: 1; letter-spacing: -.035em; margin: 0 0 1.25rem; max-width: 9ch; }
   .role { color: var(--muted); font-size: 1.15rem; margin: 0; max-width: 24rem; }
   .art { flex: 0 0 auto; width: clamp(10rem, 32vw, 19rem); height: auto; filter: drop-shadow(0 14px 22px rgba(0,0,0,.14)); }
-  .flow { animation: flow 1.4s linear 4; }
+  .flow { animation: flow 1.4s linear infinite; }
   @keyframes flow { to { stroke-dashoffset: -28; } }
   .big-list { display: block; }
   .big {
@@ -106,12 +122,14 @@
     transition: background .2s, color .2s;
   }
   .big-row:last-child .big { border-bottom: 2px solid var(--text); }
+  .big:hover span:first-child, .big:focus-visible span:first-child { text-decoration: underline; text-decoration-thickness: .05em; text-underline-offset: .12em; }
   .big .count { font-family: var(--body); font-weight: 500; font-size: 1rem; letter-spacing: 0; color: var(--muted); }
   .big:hover, .big:focus-visible { background: var(--accent); color: var(--accent-ink); }
   .big:hover .count, .big:focus-visible .count { color: var(--accent-ink); }
 
   /* Sections */
-  section { padding: clamp(3rem, 7vw, 5rem) 0; border-top: 1px solid var(--line); }
+  section { padding: clamp(2.5rem, 6vw, 4rem) 0; border-top: 1px solid var(--line); }
+  #skills { padding-bottom: clamp(1rem, 3vw, 1.5rem); }
   h2 { font-family: var(--display); font-size: clamp(1.7rem, 4vw, 2.3rem); letter-spacing: -.02em; margin: 0 0 .5rem; }
   .sub { color: var(--muted); margin: 0 0 2.5rem; max-width: 36rem; }
 
@@ -121,7 +139,6 @@
     display: grid; grid-template-columns: 11rem 1fr; gap: 1rem 2rem;
     padding: 1.4rem 0; border-top: 1px solid var(--line);
   }
-  .skills li:last-child { border-bottom: 1px solid var(--line); }
   .skills h3 { font-family: var(--display); font-size: 1.3rem; margin: 0; }
   .skills p { margin: 0 0 .85rem; }
   .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
@@ -147,7 +164,7 @@
   .project p { margin: 0; color: var(--muted); }
   .project .tags { margin-top: auto; }
   .project .tags li { background: var(--tag); border-color: transparent; border-radius: 999px; padding: .2rem .8rem; }
-  .project .links { display: flex; gap: 1.25rem; font-weight: 500; padding-top: .9rem; border-top: 1px solid var(--line); }
+  .project .links { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.25rem; overflow-wrap: anywhere; font-weight: 500; padding-top: .9rem; border-top: 1px solid var(--line); }
   .project .links a { color: var(--text); text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
   .project .links a:hover { color: var(--accent); }
 
@@ -170,6 +187,7 @@
   .eb-title::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--accent); }
   .eb-btn { font: inherit; font-size: .92rem; font-weight: 500; padding: .45rem .8rem; border: 0; border-radius: 8px; background: transparent; color: var(--text); cursor: pointer; }
   .eb-btn:hover, .eb-btn[aria-expanded="true"] { background: var(--bg); }
+  .eb-btn[aria-expanded="true"] { text-decoration: underline; text-underline-offset: 4px; }
   .eb-exit { background: var(--accent); color: var(--accent-ink); margin-left: .25rem; }
   .eb-exit:hover { background: var(--accent); filter: brightness(1.1); }
   .eb-pop {
@@ -179,8 +197,8 @@
   .eb-pop.open { display: block; }
   .eb-pop hr { border: 0; border-top: 1px solid var(--line); margin: .35rem 0; }
   .eb-field { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .5rem .6rem; font-size: .95rem; }
-  .eb-field input[type="text"] { font: inherit; width: 10rem; padding: .3rem .55rem; border: 1.5px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--text); }
-  .eb-field input[type="color"] { width: 2.6rem; height: 2rem; padding: 0; border: 1.5px solid var(--line); border-radius: 6px; background: none; cursor: pointer; }
+  .eb-field input[type="text"] { font: inherit; width: 10rem; padding: .3rem .55rem; border: 1.5px solid var(--ui); border-radius: 6px; background: var(--bg); color: var(--text); }
+  .eb-field input[type="color"] { width: 2.6rem; height: 2rem; padding: 0; border: 1.5px solid var(--ui); border-radius: 6px; background: none; cursor: pointer; }
   .eb-item { display: block; width: 100%; text-align: left; font: inherit; padding: .6rem .7rem; border: 0; border-radius: 8px; background: transparent; color: var(--text); cursor: pointer; }
   .eb-item:hover { background: var(--bg); }
   .eb-item strong { display: block; font-size: .95rem; }
@@ -201,14 +219,17 @@
   }
   button.rm:hover, button.rm-skill:hover, button.rm-big:hover, button.rm-section:hover { color: var(--danger); }
   button.link-big:hover { color: var(--accent); }
-  button.add, button.add-tag, button.add-skill, button.add-big, button.add-section {
+  button.add, button.add-tag, button.add-link, button.add-skill, button.add-big, button.add-section {
     font: inherit; font-size: .9rem; font-weight: 500; cursor: pointer; background: transparent; color: var(--muted);
-    border: 1.5px dashed var(--line); border-radius: 8px; padding: .4rem .9rem;
+    border: 1.5px dashed var(--ui); border-radius: 8px; padding: .4rem .9rem;
   }
-  button.add:hover, button.add-tag:hover, button.add-skill:hover, button.add-big:hover, button.add-section:hover { border-color: var(--accent); color: var(--accent); }
+  button.add:hover, button.add-tag:hover, button.add-link:hover, button.add-skill:hover, button.add-big:hover, button.add-section:hover { border-color: var(--accent); color: var(--accent); }
   .project .rm { align-self: flex-start; }
   button.add, button.add-skill, button.add-big { margin-top: 1.25rem; }
   button.add-tag, button.rm-skill { margin: .85rem .75rem 0 0; }
+  .editing .card-edit { display: flex; flex-wrap: wrap; gap: .6rem; }
+  .project .card-edit button { margin: 0; }
+  .project .links:empty { display: none; }
   button.rm-big, button.link-big { margin: .25rem .9rem .9rem 0; }
   button.rm-section { margin: 1.25rem 0 0 .75rem; }
   .editing button.add-section { display: block; width: 100%; margin: 2rem 0 0; padding: .9rem; }
@@ -219,12 +240,29 @@
   .slider-nav .pg { min-width: 3.5rem; text-align: center; color: var(--muted); font-size: .95rem; }
   .slider-nav button {
     display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; padding: 0; cursor: pointer;
-    background: var(--surface); color: var(--text); border: 1.5px solid var(--line); border-radius: 50%;
+    background: var(--surface); color: var(--text); border: 1.5px solid var(--ui); border-radius: 50%;
   }
   .slider-nav button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
   .slider-nav button:disabled { opacity: .35; cursor: default; }
   .editing .projects.paged .project[data-off] { display: flex; }
   .editing .slider-nav { display: none; }
+  /* Active section in the top menu */
+  header nav a[aria-current="true"] { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+
+  /* Skill levels */
+  .tag-group { margin-top: .85rem; }
+  .skills .lvl { margin: 0 0 .4rem; font-size: .88rem; font-weight: 500; color: var(--muted); }
+  .tags.familiar li { background: transparent; border-style: dashed; border-color: var(--ui); }
+  .tag-group:has(.tags:empty) { display: none; }
+  .editing .tag-group:has(.tags:empty) { display: block; }
+
+  /* Share menu */
+  .eb-pop { max-height: min(75vh, 34rem); overflow: auto; }
+  .eb-field.stack { flex-direction: column; align-items: stretch; gap: .35rem; }
+  .eb-field.stack input[type="text"] { width: 100%; }
+  .eb-field textarea { font: inherit; width: 100%; padding: .3rem .55rem; border: 1.5px solid var(--ui); border-radius: 6px; background: var(--bg); color: var(--text); resize: vertical; }
+  .eb-note { margin: .2rem .6rem .5rem; font-size: .85rem; color: var(--muted); }
+
   @media (max-width: 40rem) {
     nav a { display: none; }
     .hero-top { flex-direction: column-reverse; align-items: flex-start; }
@@ -321,8 +359,10 @@
           <h3>Mobile</h3>
           <div>
             <p>Native and cross-platform apps with smooth UI and offline support.</p>
-            <ul class="tags"><li>Kotlin</li><li>Swift</li><li>Flutter</li><li>React Native</li></ul>
-            <button class="add-tag edit-only" type="button">Add tag</button>
+            <div class="tag-group"><p class="lvl">Daily use</p><ul class="tags"><li>Kotlin</li><li>Swift</li></ul></div>
+            <div class="tag-group"><p class="lvl">Familiar with</p><ul class="tags familiar"><li>Flutter</li><li>React Native</li></ul></div>
+            <button class="add-tag edit-only" type="button" data-group="daily">Add daily tag</button>
+            <button class="add-tag edit-only" type="button" data-group="familiar">Add familiar tag</button>
             <button class="rm-skill edit-only" type="button">Remove skill</button>
           </div>
         </li>
@@ -330,8 +370,10 @@
           <h3>Backend</h3>
           <div>
             <p>REST and GraphQL APIs, authentication, and data modeling.</p>
-            <ul class="tags"><li>Node.js</li><li>Java / Spring</li><li>Python</li><li>PostgreSQL</li><li>Redis</li></ul>
-            <button class="add-tag edit-only" type="button">Add tag</button>
+            <div class="tag-group"><p class="lvl">Daily use</p><ul class="tags"><li>Node.js</li><li>PostgreSQL</li></ul></div>
+            <div class="tag-group"><p class="lvl">Familiar with</p><ul class="tags familiar"><li>Java / Spring</li><li>Python</li><li>Redis</li></ul></div>
+            <button class="add-tag edit-only" type="button" data-group="daily">Add daily tag</button>
+            <button class="add-tag edit-only" type="button" data-group="familiar">Add familiar tag</button>
             <button class="rm-skill edit-only" type="button">Remove skill</button>
           </div>
         </li>
@@ -339,8 +381,10 @@
           <h3>Web</h3>
           <div>
             <p>Responsive, accessible interfaces.</p>
-            <ul class="tags"><li>TypeScript</li><li>React</li><li>HTML &amp; CSS</li></ul>
-            <button class="add-tag edit-only" type="button">Add tag</button>
+            <div class="tag-group"><p class="lvl">Daily use</p><ul class="tags"><li>TypeScript</li><li>React</li><li>HTML &amp; CSS</li></ul></div>
+            <div class="tag-group"><p class="lvl">Familiar with</p><ul class="tags familiar"></ul></div>
+            <button class="add-tag edit-only" type="button" data-group="daily">Add daily tag</button>
+            <button class="add-tag edit-only" type="button" data-group="familiar">Add familiar tag</button>
             <button class="rm-skill edit-only" type="button">Remove skill</button>
           </div>
         </li>
@@ -348,8 +392,10 @@
           <h3>Cloud &amp; DevOps</h3>
           <div>
             <p>Deployment, monitoring, and automation.</p>
-            <ul class="tags"><li>Docker</li><li>AWS</li><li>CI/CD</li><li>Linux</li></ul>
-            <button class="add-tag edit-only" type="button">Add tag</button>
+            <div class="tag-group"><p class="lvl">Daily use</p><ul class="tags"><li>Docker</li><li>Linux</li></ul></div>
+            <div class="tag-group"><p class="lvl">Familiar with</p><ul class="tags familiar"><li>AWS</li><li>CI/CD</li></ul></div>
+            <button class="add-tag edit-only" type="button" data-group="daily">Add daily tag</button>
+            <button class="add-tag edit-only" type="button" data-group="familiar">Add familiar tag</button>
             <button class="rm-skill edit-only" type="button">Remove skill</button>
           </div>
         </li>
@@ -365,6 +411,7 @@
           <h3>Fitness tracker app</h3>
           <p>Tracks workouts and goals with offline sync. Used by 5,000+ people.</p>
           <ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>Room</li></ul>
+          <div class="card-edit edit-only"><button class="add-tag edit-only" type="button">Add tag</button><button class="add-link edit-only" type="button">Add link</button></div>
           <p class="links"><a href="#">View code</a><a href="#">Play Store</a></p>
           <button class="rm edit-only" type="button">Remove project</button>
         </article>
@@ -372,6 +419,7 @@
           <h3>Food delivery app</h3>
           <p>Order, pay, and follow your delivery live on a map.</p>
           <ul class="tags"><li>Swift</li><li>SwiftUI</li><li>Maps</li></ul>
+          <div class="card-edit edit-only"><button class="add-tag edit-only" type="button">Add tag</button><button class="add-link edit-only" type="button">Add link</button></div>
           <p class="links"><a href="#">View code</a><a href="#">App Store</a></p>
           <button class="rm edit-only" type="button">Remove project</button>
         </article>
@@ -379,6 +427,7 @@
           <h3>Language learning app</h3>
           <p>Short daily lessons with reminders and progress charts.</p>
           <ul class="tags"><li>Flutter</li><li>Firebase</li></ul>
+          <div class="card-edit edit-only"><button class="add-tag edit-only" type="button">Add tag</button><button class="add-link edit-only" type="button">Add link</button></div>
           <p class="links"><a href="#">View code</a><a href="#">Live demo</a></p>
           <button class="rm edit-only" type="button">Remove project</button>
         </article>
@@ -395,6 +444,7 @@
           <h3>Payments API</h3>
           <p>Handles 2M requests a day with 120 ms average response time.</p>
           <ul class="tags"><li>Java</li><li>Spring Boot</li><li>PostgreSQL</li></ul>
+          <div class="card-edit edit-only"><button class="add-tag edit-only" type="button">Add tag</button><button class="add-link edit-only" type="button">Add link</button></div>
           <p class="links"><a href="#">View code</a><a href="#">API docs</a></p>
           <button class="rm edit-only" type="button">Remove project</button>
         </article>
@@ -402,6 +452,7 @@
           <h3>Real-time chat service</h3>
           <p>WebSocket messaging with presence and message history.</p>
           <ul class="tags"><li>Node.js</li><li>Redis</li><li>Docker</li></ul>
+          <div class="card-edit edit-only"><button class="add-tag edit-only" type="button">Add tag</button><button class="add-link edit-only" type="button">Add link</button></div>
           <p class="links"><a href="#">View code</a><a href="#">Live demo</a></p>
           <button class="rm edit-only" type="button">Remove project</button>
         </article>
@@ -409,6 +460,7 @@
           <h3>Data pipeline</h3>
           <p>Collects and cleans event data into daily reports.</p>
           <ul class="tags"><li>Python</li><li>Kafka</li><li>AWS</li></ul>
+          <div class="card-edit edit-only"><button class="add-tag edit-only" type="button">Add tag</button><button class="add-link edit-only" type="button">Add link</button></div>
           <p class="links"><a href="#">View code</a><a href="#">Case study</a></p>
           <button class="rm edit-only" type="button">Remove project</button>
         </article>
@@ -443,9 +495,17 @@
     <label class="eb-field"><span>Light theme color</span><input id="cLight" type="color" value="#0a7a3d"></label>
     <label class="eb-field"><span>Dark theme color</span><input id="cDark" type="color" value="#4ade80"></label>
   </div>
+  <div class="eb-pop" id="pop-share">
+    <label class="eb-field stack"><span>Page title</span><input id="seoTitle" type="text" maxlength="70"></label>
+    <label class="eb-field stack"><span>Description</span><textarea id="seoDesc" rows="3" maxlength="200"></textarea></label>
+    <label class="eb-field stack"><span>Site address</span><input id="seoUrl" type="text" placeholder="https://yourname.github.io/"></label>
+    <label class="eb-field"><span>Favicon initials</span><input id="seoInit" type="text" maxlength="2"></label>
+    <p class="eb-note">Title and description show in Google and link previews. Keep the title under 60 characters and the description under 155. The site address is needed for the preview image.</p>
+  </div>
   <div class="eb-pop" id="pop-files">
     <button class="eb-item" id="dl" type="button"><strong>Download public file</strong><span>index.html without edit mode. Upload this to your site.</span></button>
     <button class="eb-item" id="dlEditor" type="button"><strong>Download editor file</strong><span>Keep this one so you can edit again.</span></button>
+    <button class="eb-item" id="dlImage" type="button"><strong>Download share image</strong><span>og-image.png for link previews. Upload it next to index.html.</span></button>
     <hr>
     <button class="eb-item" id="exportJson" type="button"><strong>Export data (JSON)</strong><span>Save your content as a backup.</span></button>
     <button class="eb-item" id="importJson" type="button"><strong>Import data (JSON)</strong><span>Replace this page's content from a file.</span></button>
@@ -455,7 +515,7 @@
     <ul class="eb-tips">
       <li>Click any text to edit it.</li>
       <li>Double-click a link to change its address.</li>
-      <li>Clear a tag's text to remove it.</li>
+      <li>Clear a tag's or link's text to remove it.</li>
       <li>Links are paused while editing. Press Exit to test them.</li>
     </ul>
   </div>
@@ -463,6 +523,7 @@
   <div class="eb-row">
     <span class="eb-title">Editing</span>
     <button class="eb-btn" type="button" data-pop="settings" aria-expanded="false">Settings</button>
+    <button class="eb-btn" type="button" data-pop="share" aria-expanded="false">Share</button>
     <button class="eb-btn" type="button" data-pop="files" aria-expanded="false">Files</button>
     <button class="eb-btn" type="button" data-pop="help" aria-expanded="false">Help</button>
     <button class="eb-btn eb-exit" id="exit" type="button">Exit</button>
@@ -525,11 +586,31 @@
   window.refreshSliders();
 })();
 </script>
+<script id="nav-js">
+(function () {
+  var links = document.querySelectorAll('header nav a[href^="#"]'), pending = 0;
+  function update() {
+    var secs = document.querySelectorAll('main section'), cur = null, y = window.innerHeight * 0.35;
+    secs.forEach(function (s) { if (s.getBoundingClientRect().top <= y) cur = s; });
+    if (secs.length && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = secs[secs.length - 1];
+    var key = cur ? (cur.classList.contains('proj-section') ? 'projects' : cur.id) : '';
+    links.forEach(function (a) {
+      var k = a.getAttribute('data-nav') || a.getAttribute('href').slice(1);
+      if (k === key) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+  }
+  function soon() { if (!pending) pending = requestAnimationFrame(function () { pending = 0; update(); }); }
+  window.addEventListener('scroll', soon, { passive: true });
+  window.addEventListener('resize', soon);
+  window.updateNav = update;
+  update();
+})();
+</script>
 <script id="editor-js">
 (function () {
   var body = document.body, root = document.documentElement;
   var bar = document.querySelector('.editbar');
-  var SEL = '.who,h1,.role,h2,.sub,#about p,.skills h3,.skills p,.tags li,.project h3,.project p:not(.links),.links a,.contact-list a,footer .wrap,.big > span:first-child';
+  var SEL = '.who,h1,.role,h2,.sub,#about p,.skills h3,.skills p:not(.lvl),.tags li,.project h3,.project p:not(.links),.links a,.contact-list a,footer .wrap,.big > span:first-child';
   var taps = 0, timer = null;
 
   function editing() { return body.classList.contains('editing'); }
@@ -572,6 +653,7 @@
     var first = sections()[0], nav = document.querySelector('nav a[data-nav="projects"]');
     if (first && nav) nav.setAttribute('href', '#' + first.id);
     if (window.refreshSliders) window.refreshSliders(true);
+    if (window.updateNav) window.updateNav();
   }
   function addBigRow(label, id) {
     var row = document.querySelector('.big-row').cloneNode(true), a = row.querySelector('.big');
@@ -652,7 +734,12 @@
     }
     if (c.contains('add-tag')) {
       var li = document.createElement('li'); li.textContent = 'Tag';
-      t.closest('.skills > li').querySelector('.tags').appendChild(li);
+      t.closest('.skills > li, .project').querySelector(t.getAttribute('data-group') === 'familiar' ? '.tags.familiar' : '.tags').appendChild(li);
+      applyEditable();
+    }
+    if (c.contains('add-link')) {
+      var ln = document.createElement('a'); ln.textContent = 'Link'; setHref(ln, '#');
+      t.closest('.project').querySelector('.links').appendChild(ln);
       applyEditable();
     }
     if (c.contains('rm-skill')) {
@@ -663,13 +750,13 @@
       var row = document.querySelector('.skills > li').cloneNode(true);
       row.querySelector('h3').textContent = 'New skill';
       row.querySelector('p').textContent = 'Describe what you do in this area.';
-      row.querySelector('.tags').innerHTML = '<li>Tag</li>';
+      row.querySelector('.tags').innerHTML = '<li>Tag</li>'; row.querySelector('.tags.familiar').innerHTML = '';
       document.querySelector('.skills').appendChild(row);
       applyEditable();
     }
   });
   document.addEventListener('focusout', function (e) {
-    if (editing() && e.target.matches && e.target.matches('.tags li') && !e.target.textContent.trim()) e.target.remove();
+    if (editing() && e.target.matches && e.target.matches('.tags li, .project .links a') && !e.target.textContent.trim()) e.target.remove();
   });
   document.addEventListener('dblclick', function (e) {
     if (!editing()) return;
@@ -690,19 +777,70 @@
 
   /* Name and colours */
   var nameIn = document.getElementById('siteName'), cL = document.getElementById('cLight'), cD = document.getElementById('cDark');
+  var lastName = document.querySelector('.brand').textContent;
   nameIn.addEventListener('input', function () {
-    document.querySelector('.brand').textContent = nameIn.value;
-    document.title = nameIn.value + ' | Software Engineer';
-    nameIn.setAttribute('value', nameIn.value);
+    var nm = nameIn.value;
+    document.querySelector('.brand').textContent = nm;
+    if (seoTitle.value.indexOf(lastName) === 0) seoTitle.value = nm + seoTitle.value.slice(lastName.length);
+    lastName = nm; nameIn.setAttribute('value', nm); applyShare();
   });
   function applyColors() {
     cL.setAttribute('value', cL.value); cD.setAttribute('value', cD.value);
     document.getElementById('custom').textContent =
       ':root{--accent:' + cL.value + '}:root[data-theme="dark"]{--accent:' + cD.value + '}';
+    applyShare();
   }
   cL.addEventListener('input', applyColors);
   cD.addEventListener('input', applyColors);
 
+
+  /* Search and share: title, description, preview tags, favicon */
+  var seoTitle = document.getElementById('seoTitle'), seoDesc = document.getElementById('seoDesc');
+  var seoUrl = document.getElementById('seoUrl'), seoInit = document.getElementById('seoInit');
+  var icon = document.querySelector('link[rel="icon"]');
+  function normUrl(v) {
+    v = str(v).trim();
+    if (!v) return '';
+    if (!/^[a-z][a-z0-9+.-]*:/i.test(v)) v = 'https://' + v;
+    return /^https?:\/\//i.test(v) ? v.replace(/\/*$/, '/') : '';
+  }
+  function setMeta(attr, key, val) {
+    var el = document.head.querySelector('meta[' + attr + '="' + key + '"]');
+    if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }
+    el.setAttribute('content', val);
+  }
+  function dropEl(sel) { var el = document.head.querySelector(sel); if (el) el.remove(); }
+  function iconHref(ini, color) {
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="' + color + '"/><text x="32" y="43" font-family="Arial,Helvetica,sans-serif" font-size="' + (ini.length > 1 ? 30 : 38) + '" font-weight="700" text-anchor="middle" fill="#fff">' + ini.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</text></svg>';
+    return 'data:image/svg+xml,' + encodeURIComponent(svg);
+  }
+  function applyShare() {
+    var t = seoTitle.value.trim() || document.title, d = seoDesc.value.trim(), base = normUrl(seoUrl.value);
+    var ini = seoInit.value.trim().toUpperCase().slice(0, 2), img = base + 'og-image.png';
+    if (seoInit.value !== ini) seoInit.value = ini;
+    document.title = t;
+    setMeta('name', 'description', d);
+    setMeta('property', 'og:title', t); setMeta('property', 'og:description', d);
+    setMeta('property', 'og:site_name', document.querySelector('.brand').textContent);
+    setMeta('property', 'og:image', img);
+    setMeta('name', 'twitter:title', t); setMeta('name', 'twitter:description', d); setMeta('name', 'twitter:image', img);
+    setMeta('name', 'theme-color', cL.value);
+    if (base) {
+      setMeta('property', 'og:url', base);
+      var can = document.head.querySelector('link[rel="canonical"]');
+      if (!can) { can = document.createElement('link'); can.setAttribute('rel', 'canonical'); document.head.appendChild(can); }
+      can.setAttribute('href', base);
+    } else { dropEl('meta[property="og:url"]'); dropEl('link[rel="canonical"]'); }
+    icon.setAttribute('href', iconHref(ini || '?', cL.value)); icon.setAttribute('data-initials', ini);
+  }
+  (function () {
+    seoTitle.value = document.title;
+    var dm = document.querySelector('meta[name="description"]'), um = document.querySelector('meta[property="og:url"]');
+    seoDesc.value = dm ? dm.getAttribute('content') : '';
+    seoUrl.value = um ? um.getAttribute('content') : '';
+    seoInit.value = icon.getAttribute('data-initials') || '';
+  })();
+  [seoTitle, seoDesc, seoUrl, seoInit].forEach(function (el) { el.addEventListener('input', applyShare); });
 
   /* Data: export and import as JSON */
   var STATIC = {
@@ -740,7 +878,7 @@
       return i >= 0 ? { label: label, section: i } : { label: label, href: a.getAttribute('href') || '#' };
     });
     d.skills = arr(document.querySelectorAll('.skills > li')).map(function (li) {
-      return { title: li.querySelector('h3').textContent, text: li.querySelector('p').textContent, tags: texts('.tags li', li) };
+      return { title: li.querySelector('h3').textContent, text: li.querySelector('p').textContent, tags: texts('.tags:not(.familiar) li', li), familiar: texts('.tags.familiar li', li) };
     });
     d.sections = secs.map(function (s) {
       return {
@@ -751,6 +889,7 @@
       };
     });
     d.contact = arr(document.querySelectorAll('.contact-list a')).map(linkOf);
+    d.seo = { title: seoTitle.value, description: seoDesc.value, url: seoUrl.value, initials: seoInit.value };
     return d;
   }
   function validate(d) {
@@ -767,7 +906,7 @@
       var s = d.skills[i] || {};
       li.querySelector('h3').textContent = str(s.title);
       li.querySelector('p').textContent = str(s.text);
-      setTags(li.querySelector('.tags'), s.tags || []);
+      setTags(li.querySelector('.tags:not(.familiar)'), s.tags || []); setTags(li.querySelector('.tags.familiar'), s.familiar || []);
     });
     var secs = fit(document.querySelector('main .wrap'), '.proj-section', d.sections.length, document.querySelector('.add-section')), used = {};
     secs.forEach(function (sec, i) {
@@ -799,13 +938,15 @@
     });
     var nm = str(d.name) || 'Your Name';
     document.querySelector('.brand').textContent = nm; nameIn.value = nm; nameIn.setAttribute('value', nm);
-    document.title = nm + ' | Software Engineer';
+    var seo = d.seo || {};
+    seoTitle.value = str(seo.title) || (nm + ' | Software Engineer'); lastName = nm;
+    if (d.seo) { seoDesc.value = str(seo.description); seoUrl.value = str(seo.url); seoInit.value = str(seo.initials); }
     if (d.colors) {
       if (/^#[0-9a-f]{6}$/i.test(d.colors.light)) cL.value = d.colors.light;
       if (/^#[0-9a-f]{6}$/i.test(d.colors.dark)) cD.value = d.colors.dark;
       applyColors();
     }
-    applyEditable(); updateCounts();
+    applyShare(); applyEditable(); updateCounts();
   }
   document.getElementById('exportJson').addEventListener('click', function () {
     closePops(); save('portfolio-data.json', JSON.stringify(snapshot(), null, 2), 'application/json'); note('Downloaded portfolio-data.json.');
@@ -840,10 +981,47 @@
   }
   function save(name, html, type) {
     var a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([html], { type: type || 'text/html' })); a.download = name;
+    a.href = URL.createObjectURL(html instanceof Blob ? html : new Blob([html], { type: type || 'text/html' })); a.download = name;
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
   }
+  /* Share image for link previews (1200 x 630) */
+  function wrapText(g, text, maxW) {
+    var words = text.split(/\s+/), lines = [], line = '';
+    words.forEach(function (w) {
+      var t = line ? line + ' ' + w : w;
+      if (g.measureText(t).width > maxW && line) { lines.push(line); line = w; } else line = t;
+    });
+    if (line) lines.push(line);
+    return lines;
+  }
+  document.getElementById('dlImage').addEventListener('click', function () {
+    closePops();
+    var W = 1200, H = 630, cv = document.createElement('canvas'), g = cv.getContext('2d');
+    cv.width = W; cv.height = H;
+    var FONT = '"Bricolage Grotesque","Segoe UI",system-ui,sans-serif';
+    var name = document.querySelector('.brand').textContent, role = (seoTitle.value.split('|')[1] || '').trim();
+    var ini = seoInit.value.trim().toUpperCase().slice(0, 2) || name.slice(0, 1).toUpperCase();
+    function draw() {
+      g.fillStyle = '#f6fbf7'; g.fillRect(0, 0, W, H);
+      g.fillStyle = cL.value; g.fillRect(0, 0, 28, H);
+      g.beginPath(); if (g.roundRect) g.roundRect(100, 90, 104, 104, 24); else g.rect(100, 90, 104, 104); g.fill();
+      g.fillStyle = '#ffffff'; g.font = '700 ' + (ini.length > 1 ? 48 : 60) + 'px ' + FONT; g.textAlign = 'center'; g.textBaseline = 'middle';
+      g.fillText(ini, 152, 144);
+      g.textAlign = 'left'; g.textBaseline = 'alphabetic';
+      var size = 104; g.font = '700 ' + size + 'px ' + FONT;
+      while (g.measureText(name).width > W - 200 && size > 48) { size -= 4; g.font = '700 ' + size + 'px ' + FONT; }
+      g.fillStyle = '#0f2418'; g.fillText(name, 100, 350);
+      var y = 420;
+      if (role) { g.fillStyle = cL.value; g.font = '500 44px ' + FONT; g.fillText(role, 100, y); y += 64; }
+      g.fillStyle = '#4a6455'; g.font = '400 32px ' + FONT;
+      wrapText(g, seoDesc.value, W - 200).slice(0, 2).forEach(function (l) { g.fillText(l, 100, y); y += 46; });
+      var host = normUrl(seoUrl.value).replace(/^https?:\/\//, '').replace(/\/$/, '');
+      if (host) { g.font = '500 30px ' + FONT; g.fillText(host, 100, H - 60); }
+      cv.toBlob(function (b) { save('og-image.png', b); note('Downloaded og-image.png. Upload it next to index.html.'); }, 'image/png');
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw); else draw();
+  });
   document.getElementById('dl').addEventListener('click', function () { save('index.html', page(false)); note('Downloaded index.html. Press Exit to test your links.'); });
   document.getElementById('dlEditor').addEventListener('click', function () { save('portfolio-editor.html', page(true)); note('Downloaded portfolio-editor.html. Press Exit to test your links.'); });
 })();
